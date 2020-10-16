@@ -1,20 +1,9 @@
 <template>
   <div>
-    <!-- Hero -->
-    <!-- <base-page-heading title="Responsive Tables" subtitle="Mobile friendly tables that work across all screen sizes.">
-      <template #extra>
-        <b-breadcrumb class="breadcrumb-alt">
-          <b-breadcrumb-item href="javascript:void(0)">Tables</b-breadcrumb-item>
-          <b-breadcrumb-item active>Recipients</b-breadcrumb-item>
-        </b-breadcrumb>
-      </template>
-    </base-page-heading> -->
-    <!-- END Hero -->
-
     <!-- Page Content -->
     <div class="content">
       <!-- Full Table -->
-      <base-block rounded title="Full Table">
+      <base-block rounded title="Categories Types">
         <template #options>
           <!-- Default Variation -->
           <base-block rounded>
@@ -119,14 +108,6 @@ export default {
       // Alert with form input values
       alert(JSON.stringify(this.form))
     },
-    // onReset (evt) {
-    //   evt.preventDefault()
-
-    //   // Reset our form values
-    //   this.form.username = ''
-    //   this.form.password = ''
-    //   this.form.rememberMe = false
-    // }
   }
 }
 </script>

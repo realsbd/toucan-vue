@@ -3,7 +3,7 @@
     <!-- Page Content -->
     <div class="content">
       <!-- Full Table -->
-      <base-block rounded title="Full Table">
+      <base-block rounded title="Global Goal">
         <template #options>
           <!-- Default Variation -->
           <base-block rounded>
@@ -129,6 +129,14 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    onSubmit (evt) {
+      evt.preventDefault()
+
+      // Alert with form input values
+      alert(JSON.stringify(this.form))
+    },
   }
 }
 </script>
