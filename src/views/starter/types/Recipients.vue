@@ -1,14 +1,14 @@
 <template>
   <div>
     <!-- Hero -->
-    <base-page-heading title="Responsive Tables" subtitle="Mobile friendly tables that work across all screen sizes.">
+    <!-- <base-page-heading title="Responsive Tables" subtitle="Mobile friendly tables that work across all screen sizes.">
       <template #extra>
         <b-breadcrumb class="breadcrumb-alt">
           <b-breadcrumb-item href="javascript:void(0)">Tables</b-breadcrumb-item>
           <b-breadcrumb-item active>Recipients</b-breadcrumb-item>
         </b-breadcrumb>
       </template>
-    </base-page-heading>
+    </base-page-heading> -->
     <!-- END Hero -->
 
     <!-- Page Content -->
@@ -16,48 +16,59 @@
       <!-- Full Table -->
       <base-block rounded title="Full Table">
         <template #options>
-          <button type="button" class="btn-block-option">
-            <i class="si si-settings"></i>
-          </button>
+          <!-- Default Variation -->
+          <base-block rounded>
+            <b-button variant="alt-primary" class="push" v-b-modal.modal-block-normal>
+              Add New Recipient
+            </b-button>
+          </base-block>
+          <!-- END Default Variation -->
+
+          <!-- Normal Block Modal -->
+          <b-modal id="modal-block-normal" body-class="p-0" hide-footer hide-header>
+            <div class="block block-rounded block-themed block-transparent mb-0">
+              <div class="block-header bg-primary-dark">
+                <h3 class="block-title">Add New Recipient</h3>
+                <div class="block-options">
+                  <button type="button" class="btn-block-option" @click="$bvModal.hide('modal-block-normal')">
+                    <i class="fa fa-fw fa-times"></i>
+                  </button>
+                </div>
+              </div>
+                <b-form class="block-content font-size-sm" @submit="onSubmit">
+                  <b-form-group label="Recipient" label-for="Add new Recipient">
+                    <b-form-input id="recipient" name="recipient" placeholder="Add new Recipient"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-button type="submit" size="sm" variant="primary">
+                      Submit
+                    </b-button>
+                  </b-form-group>
+                </b-form>
+            </div>
+          </b-modal>
+          <!-- END Normal Block Modal -->
         </template>
-        <p class="font-size-sm text-muted">
-          The first way to make a table responsive is to add the <code>responsive</code> property. This way, the table will be horizontally scrollable and all data will be accessible on smaller screens.
-          You could also specify a value to apply the horizontal scrolling on different screen widths: <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>.
-        </p>
         <b-table-simple responsive bordered striped table-class="table-vcenter">
           <b-thead>
             <b-tr>
-              <b-th class="text-center" style="width: 100px;">
-                <i class="far fa-user"></i>
-              </b-th>
-              <b-th>Name</b-th>
-              <b-th style="width: 30%;">Email</b-th>
-              <b-th style="width: 15%;">Access</b-th>
+              <b-th>Recipients</b-th>
               <b-th class="text-center" style="min-width: 110px; width: 110px;">Actions</b-th>
             </b-tr>
           </b-thead>
           <b-tbody>
-            <b-tr v-for="user in users" :key="user.id">
-              <b-td class="text-center">
-                <img class="img-avatar img-avatar48" :src="`img/avatars/${user.avatar}.jpg`" alt="Avatar">
-              </b-td>
+            <b-tr v-for="recipient in recipients" :key="recipient.id">
               <b-td class="font-w600 font-size-sm">
-                <a :href="`${user.href}`">
-                  {{ user.name }}
+                <a :href="`${recipient.href}`">
+                  {{ recipient.name }}
                 </a>
-              </b-td>
-              <b-td class="font-size-sm">
-                client{{ user.id }}<em class="text-muted">@example.com</em>
-              </b-td>
-              <b-td>
-                <b-badge :variant="user.labelVariant">{{ user.labelText }}</b-badge>
               </b-td>
               <b-td class="text-center">
                 <b-btn-group>
-                  <b-button size="sm" variant="alt-primary">
+                  <b-button size="md" variant="alt-primary">
                     <i class="fa fa-fw fa-pencil-alt"></i>
                   </b-button>
-                  <b-button size="sm" variant="alt-primary">
+                  <b-button size="md" variant="alt-primary">
                     <i class="fa fa-fw fa-times"></i>
                   </b-button>
                 </b-btn-group>
@@ -68,60 +79,6 @@
       </base-block>
       <!-- END Full Table -->
 
-      <!-- Partial Table -->
-      <base-block rounded title="Partial Table">
-        <template #options>
-          <button type="button" class="btn-block-option">
-            <i class="si si-settings"></i>
-          </button>
-        </template>
-        <p class="font-size-sm text-muted">
-          The second way is to use <router-link to="/backend/elements/grid">responsive utility CSS classes</router-link> for hiding columns in various screen resolutions. This way you can hide less important columns and keep the most valuable on smaller screens.
-          At the following example the <strong>Access</strong> column isn't visible on small and extra small screens and <strong>Email</strong> column isn't visible on extra small screens.
-        </p>
-        <b-table-simple bordered striped table-class="table-vcenter">
-          <b-thead>
-            <b-tr>
-              <b-th class="text-center" style="width: 100px;">
-                <i class="far fa-user"></i>
-              </b-th>
-              <b-th>Name</b-th>
-              <b-th class="d-none d-sm-table-cell" style="width: 30%;">Email</b-th>
-              <b-th class="d-none d-md-table-cell" style="width: 15%;">Access</b-th>
-              <b-th class="text-center" style="min-width: 110px; width: 110px;">Actions</b-th>
-            </b-tr>
-          </b-thead>
-          <b-tbody>
-            <b-tr v-for="user in users" :key="user.id">
-              <b-td class="text-center">
-                <img class="img-avatar img-avatar48" :src="`img/avatars/${user.avatar}.jpg`" alt="Avatar">
-              </b-td>
-              <b-td class="font-w600 font-size-sm">
-                <a :href="`${user.href}`">
-                  {{ user.name }}
-                </a>
-              </b-td>
-              <b-td class="d-none d-sm-table-cell font-size-sm">
-                client{{ user.id }}<em class="text-muted">@example.com</em>
-              </b-td>
-              <b-td class="d-none d-md-table-cell">
-                <b-badge :variant="user.labelVariant">{{ user.labelText }}</b-badge>
-              </b-td>
-              <b-td class="text-center">
-                <b-btn-group>
-                  <b-button size="sm" variant="alt-primary">
-                    <i class="fa fa-fw fa-pencil-alt"></i>
-                  </b-button>
-                  <b-button size="sm" variant="alt-primary">
-                    <i class="fa fa-fw fa-times"></i>
-                  </b-button>
-                </b-btn-group>
-              </b-td>
-            </b-tr>
-          </b-tbody>
-        </b-table-simple>
-      </base-block>
-      <!-- END Partial Table -->
     </div>
     <!-- END Page Content -->
   </div>
@@ -131,49 +88,45 @@
 export default {
   data () {
     return {
-      users: [
+      recipients: [
         {
           id: 1,
           name: 'Adam McCoy',
-          avatar: 'avatar10',
-          href: 'javascript:void(0)',
-          labelVariant: 'success',
-          labelText: 'VIP'
         },
         {
           id: 2,
           name: 'Betty Kelley',
-          avatar: 'avatar2',
-          href: 'javascript:void(0)',
-          labelVariant: 'info',
-          labelText: 'Business'
         },
         {
           id: 3,
           name: 'Jesse Fisher',
-          avatar: 'avatar9',
-          href: 'javascript:void(0)',
-          labelVariant: 'primary',
-          labelText: 'Personal'
         },
         {
           id: 4,
           name: 'Ryan Flores',
-          avatar: 'avatar12',
-          href: 'javascript:void(0)',
-          labelVariant: 'warning',
-          labelText: 'Trial'
         },
         {
           id: 5,
           name: 'Alice Moore',
-          avatar: 'avatar4',
-          href: 'javascript:void(0)',
-          labelVariant: 'danger',
-          labelText: 'Disabled'
         }
       ]
     }
+  },
+  methods: {
+    onSubmit (evt) {
+      evt.preventDefault()
+
+      // Alert with form input values
+      alert(JSON.stringify(this.form))
+    },
+    // onReset (evt) {
+    //   evt.preventDefault()
+
+    //   // Reset our form values
+    //   this.form.username = ''
+    //   this.form.password = ''
+    //   this.form.rememberMe = false
+    // }
   }
 }
 </script>
