@@ -25,8 +25,14 @@
                 </div>
               </div>
                 <b-form class="block-content font-size-sm" @submit="onSubmit">
-                  <b-form-group label="Global Goal" label-for="Add new Global Goal">
-                    <b-form-input id="globalGoal" name="globalGoal" placeholder="Add new Global Goal"></b-form-input>
+                  <b-form-group label="Upload Image" label-for="Upload Image">
+                    <b-form-file id="globalImg" name="globalImg" plain></b-form-file>
+                  </b-form-group>
+                  <b-form-group label="Label" label-for="Add new Label">
+                    <b-form-input id="label" name="label" placeholder="Add new Label"></b-form-input>
+                  </b-form-group>
+                  <b-form-group label="link" label-for="Add new link">
+                    <b-form-input id="link" name="link" placeholder="Add new link"></b-form-input>
                   </b-form-group>
                   <b-form-group>
                     <b-button type="submit" size="sm" variant="primary">
