@@ -197,52 +197,57 @@ export default {
           icon: 'si si-compass'
         },
         {
-      name: 'Impacts',
-      to: '/impacts',
-      icon: 'si si-speedometer'
-    },
-    {
-      name: 'Users',
-      to: '/users',
-      icon: 'si si-speedometer'
-    },
-    {
-      name: 'Company',
-      to: '/company',
-      icon: 'si si-speedometer'
-    },
-    {
-      name: 'Global goals',
-      to: '/global',
-      icon: 'si si-speedometer'
-    },
-    {
-      name: 'Categories',
-      to: '/categories',
-      icon: 'si si-speedometer'
-    },
-    {
-      name: 'Types',
-      icon: 'si si-layers',
-      sub: [
-             {
-              name: 'Recipients',
-              to: '/recipient'
-            },
-            {
-              name: 'Impact Type',
-              to: '/impact-type'
-            },
-            {
-              name: 'Action',
-              to: '/action'
-            },
-            {
-              name: 'Who Needs to Know',
-              to: '/wntk'
-            },
-          ]
-    },
+          name: 'Impacts',
+          to: '/impact',
+          icon: 'si si-speedometer'
+        },
+        {
+          name: 'Users',
+          to: '/users',
+          icon: 'si si-speedometer'
+        },
+        {
+          name: 'Link User',
+          to: '/link-user',
+          icon: 'si si-speedometer'
+        },
+        {
+          name: 'Company',
+          to: '/company',
+          icon: 'si si-speedometer'
+        },
+        {
+          name: 'Global goals',
+          to: '/global',
+          icon: 'si si-speedometer'
+        },
+        {
+          name: 'Categories',
+          to: '/categories',
+          icon: 'si si-speedometer'
+        },
+        {
+          name: 'Types',
+          icon: 'si si-layers',
+          sub: [
+                {
+                  name: 'Recipients',
+                  to: '/recipient'
+                },
+                {
+                  name: 'Impact Type',
+                  to: '/impact-type'
+                },
+                {
+                  name: 'Action',
+                  to: '/action'
+                },
+                {
+                  name: 'Who Needs to Know',
+                  to: '/wntk'
+                },
+              ]
+        },
         // {
         //   name: 'Pages',
         //   heading: true

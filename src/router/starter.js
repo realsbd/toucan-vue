@@ -7,7 +7,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Main layouts
-import LayoutBackend from '@/layouts/variations/BackendStarter.vue'
+// import LayoutBackend from '@/layouts/variations/BackendStarter.vue'
 import LayoutBackendBoxed from '@/layouts/variations/BackendBoxed.vue'
 import LayoutSimple from '@/layouts/variations/Simple.vue'
 
@@ -26,6 +26,7 @@ const Impact = () => import("@/views/starter/impact/Impact.vue")
 const Users = () => import("@/views/starter/Users.vue")
 const Company = () => import("@/views/starter/Company.vue")
 const Categories = () => import("@/views/starter/Categories.vue")
+const LinkUser = () => import("@/views/starter/LinkUser.vue")
 const GlobalGoals = () => import("@/views/starter/GlobalGoals.vue")
 
 const ActionType = () => import("@/views/starter/types/ActionType.vue")
@@ -34,11 +35,11 @@ const Recipients = () => import("@/views/starter/types/Recipients.vue")
 const WhoNeedsToKnow = () => import("@/views/starter/types/WhoNeedsToKnow.vue")
 
 // AUTH Pages
-const AuthSignIn = () => import(/* webpackChunkName: "auth-signin" */"@/views/pages/auth/SignIn.vue")
-const AuthSignUp = () => import(/* webpackChunkName: "auth-signup" */"@/views/pages/auth/SignUp.vue")
-const AuthReminder = () => import(/* webpackChunkName: "auth-reminder" */"@/views/pages/auth/Reminder.vue")
-const Errors404 = () => import("@/views/pages/errors/404.vue")
-const Errors500 = () => import("@/views/pages/errors/500.vue")
+const AuthSignIn = () => import(/* webpackChunkName: "auth-signin" */"@/views/starter/auth/SignIn.vue")
+const AuthSignUp = () => import(/* webpackChunkName: "auth-signup" */"@/views/starter/auth/SignUp.vue")
+const AuthReminder = () => import(/* webpackChunkName: "auth-reminder" */"@/views/starter/auth/Reminder.vue")
+const Errors404 = () => import("@/views/starter/error/404.vue")
+const Errors500 = () => import("@/views/starter/error/500.vue")
 
 // Router Configuration
 export default new Router({
@@ -90,6 +91,11 @@ export default new Router({
           component: Users
         },
         {
+          path: 'link-user',
+          name: 'Link User',
+          component: LinkUser
+        },
+        {
           path: 'company',
           name: 'Company',
           component: Company
@@ -124,18 +130,6 @@ export default new Router({
           name: 'Who Needs To Know',
           component: WhoNeedsToKnow
         },
-      ]
-    },
-    {
-      path: '/',
-      redirect: '/impact',
-      component: LayoutBackend,
-      children: [
-        {
-          path: 'impact',
-          name: 'Impact',
-          component: Impact
-        }
       ]
     },
     {
