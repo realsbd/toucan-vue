@@ -103,6 +103,11 @@
   </div>
 </template>
 
+<style lang="scss">
+  @import '~vue-select/src/scss/vue-select';
+  @import './src/assets/scss/vendor/vue-select';
+</style>
+
 <script>
 import VueSelect from 'vue-select'
 export default {

@@ -19,7 +19,7 @@ const Landing = () => import("@/views/Landing.vue")
 
 // Backend: General
 const Dashboard = () => import(/* webpackChunkName: "pages-dashboard", webpackPrefetch: true */"@/views/Dashboard.vue")
-const Impact = () => import("@/views/starter/impact/Simple1.vue")
+const Impact = () => import("@/views/starter/impact/Impact.vue")
 const Users = () => import("@/views/starter/Users.vue")
 const Company = () => import("@/views/starter/Company.vue")
 const Categories = () => import("@/views/starter/Categories.vue")
