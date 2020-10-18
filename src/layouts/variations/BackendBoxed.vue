@@ -193,45 +193,92 @@ export default {
       navigation: [
         {
           name: 'Dashboard',
-          to: '/backend-boxed/dashboard',
+          to: '/dashboard',
           icon: 'si si-compass'
         },
         {
-          name: 'Pages',
-          heading: true
-        },
-        {
-          name: 'Variations',
-          icon: 'si si-puzzle',
-          sub: [
-            {
-              name: 'Simple 1',
-              to: '/backend-boxed/simple1'
+      name: 'Impacts',
+      to: '/impacts',
+      icon: 'si si-speedometer'
+    },
+    {
+      name: 'Users',
+      to: '/users',
+      icon: 'si si-speedometer'
+    },
+    {
+      name: 'Company',
+      to: '/company',
+      icon: 'si si-speedometer'
+    },
+    {
+      name: 'Global goals',
+      to: '/global',
+      icon: 'si si-speedometer'
+    },
+    {
+      name: 'Categories',
+      to: '/categories',
+      icon: 'si si-speedometer'
+    },
+    {
+      name: 'Types',
+      icon: 'si si-layers',
+      sub: [
+             {
+              name: 'Recipients',
+              to: '/recipient'
             },
             {
-              name: 'Simple 2',
-              to: '/backend-boxed/simple2'
+              name: 'Impact Type',
+              to: '/impact-type'
             },
             {
-              name: 'Image 1',
-              to: '/backend-boxed/image1'
+              name: 'Action',
+              to: '/action'
             },
             {
-              name: 'Image 2',
-              to: '/backend-boxed/image2'
-            }
+              name: 'Who Needs to Know',
+              to: '/wntk'
+            },
           ]
-        },
-        {
-          name: 'Search',
-          to: '/backend-boxed/search',
-          icon: 'si si-magnifier'
-        },
-        {
-          name: 'Go Back',
-          to: '/backend/dashboard',
-          icon: 'si si-action-undo'
-        }
+    },
+        // {
+        //   name: 'Pages',
+        //   heading: true
+        // },
+        // {
+        //   name: 'Variations',
+        //   icon: 'si si-puzzle',
+        //   sub: [
+        //     {
+        //       name: 'Simple 1',
+        //       to: '/backend-boxed/simple1'
+        //     },
+        //     {
+        //       name: 'Simple 2',
+        //       to: '/backend-boxed/simple2'
+        //     },
+        //     {
+        //       name: 'Image 1',
+        //       to: '/backend-boxed/image1'
+        //     },
+        //     {
+        //       name: 'Image 2',
+        //       to: '/backend-boxed/image2'
+        //     }
+        //   ]
+        // },
+        // {
+        //   name: 'Search',
+        //   to: '/backend-boxed/search',
+        //   icon: 'si si-magnifier'
+        // },
+        // {
+        //   name: 'Go Back',
+        //   to: '/backend/dashboard',
+        //   icon: 'si si-action-undo'
+        // }
       ],
       baseSearchTerm: '',
       notifications: [

@@ -32,7 +32,7 @@
                         <b-row>
                           <b-col lg="4">
                               <b-form-group label="When was this Action?" label-for="action date">           
-                                <flat-pickr id="example-flatpickr-default" class="form-control bg-white" md="6" xl="3" placeholder="Y-m-d" v-model="dateDefault"></flat-pickr>
+                                <flat-pickr id="action-date" class="form-control bg-white" md="6" xl="3" placeholder="Y-m-d" v-model="dateDefault"></flat-pickr>
                               </b-form-group>
                           </b-col> 
                           <b-col lg="4">  
@@ -109,8 +109,8 @@
                     <b-form-group label="How to improve" label-for="improvement">
                           <ckeditor :editor="ckeditor" v-model="ckeditorData" :config="ckeditorConfig"></ckeditor>
                     </b-form-group>
-                    <b-form-group label="When was this Action?" label-for="action date">           
-                      <flat-pickr id="example-flatpickr-default" class="form-control bg-white" md="6" xl="3" placeholder="Y-m-d" v-model="dateDefault"></flat-pickr>
+                    <b-form-group label="Reminder" label-for="Reminder">           
+                      <flat-pickr id="reminder" class="form-control bg-white" md="6" xl="3" placeholder="Y-m-d" v-model="dateDefault"></flat-pickr>
                     </b-form-group>
                     <b-form-group label="Could this be made public?" label-class="font-w600">
                       <b-form-checkbox-group v-model="selectedPublicRepeatable" :options="optionsPublicRepeatable" switches></b-form-checkbox-group>
@@ -137,7 +137,7 @@
                 {{ impact.date }}
               </b-td>
               <b-td class="font-w600 font-size-sm">
-                <a :href="`${impact.href}`">
+                <a >
                   {{ impact.user }}
                 </a>
               </b-td>
