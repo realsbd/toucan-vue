@@ -79,6 +79,43 @@
                           </b-col>
                         </b-row>
                   </base-block>
+                  <base-block rounded>
+                    <h1><small>3. Global Goals</small></h1>
+                    <p>Select at least one global goal.</p>
+                      <b-form-group label="Select at least one global goal." label-class="font-w600">
+                        <b-form-checkbox-group v-model="selectedCheckboxes" :options="optionsCheckboxes" size="lg"></b-form-checkbox-group>
+                      </b-form-group>
+                  </base-block>
+                  <base-block rounded>
+                    <h1><small>4. Extras</small></h1>
+                      <b-form-group label="Could this be done again?" label-class="font-w600">
+                      <b-form-checkbox-group v-model="selectedRepeatable" :options="optionsRepeatable" switches stacked></b-form-checkbox-group>
+                    </b-form-group>
+                    <b-form-group label="Qoute or Testimony" label-for="Qoute">
+                          <ckeditor :editor="ckeditor" v-model="ckeditorData" :config="ckeditorConfig"></ckeditor>
+                      </b-form-group>
+                    <b-form-group label="Source to reference e.g. B1G1" label-for="reference">
+                          <ckeditor :editor="ckeditor" v-model="ckeditorData" :config="ckeditorConfig"></ckeditor>
+                      </b-form-group>
+                      <b-form-group label="Tags" label-for="Tags">
+                        <v-select multiple v-model="vSelectOptionsMultipleTagsSelected" :options="vSelectOptionsMultipleTags" placeholder="Select tags"></v-select>
+                      </b-form-group>
+                  </base-block>
+                  <base-block rounded>
+                    <h1><small>5. Learning and Amplyfing</small></h1>
+                    <b-form-group label="Any Insights from this Impact?" label-for="Insights">
+                          <ckeditor :editor="ckeditor" v-model="ckeditorData" :config="ckeditorConfig"></ckeditor>
+                      </b-form-group>
+                    <b-form-group label="How to improve" label-for="improvement">
+                          <ckeditor :editor="ckeditor" v-model="ckeditorData" :config="ckeditorConfig"></ckeditor>
+                    </b-form-group>
+                    <b-form-group label="When was this Action?" label-for="action date">           
+                      <flat-pickr id="example-flatpickr-default" class="form-control bg-white" md="6" xl="3" placeholder="Y-m-d" v-model="dateDefault"></flat-pickr>
+                    </b-form-group>
+                    <b-form-group label="Could this be made public?" label-class="font-w600">
+                      <b-form-checkbox-group v-model="selectedPublicRepeatable" :options="optionsPublicRepeatable" switches></b-form-checkbox-group>
+                    </b-form-group>
+                  </base-block>
                 </form>
               </div>
             </div>
@@ -214,6 +251,8 @@ export default {
 
       vSelectOptionsMultiple: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Ruby', 'Angular', 'React', 'Vue.js'],
       vSelectOptionsMultipleSelected: null,
+      vSelectOptionsMultipleTags: ['HTML', 'CSS', 'JavaScript',],
+      vSelectOptionsMultipleTagsSelected: null,
       vSelectOptionsMultipleCountries: ["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium",],
       vSelectOptionsMultipleCountriesSelected: null,
 
@@ -223,7 +262,25 @@ export default {
       },
       // Here we specify the editor you've imported before
       // ClassicEditor, InlineEditor, BalloonEditor, BalloonBlockEditor
-      ckeditor: ClassicEditor
+      ckeditor: ClassicEditor,
+      selectedCheckboxes: [],
+      optionsCheckboxes: [
+        { value: 1, html: '<img src="/img/global/g-1.png" class="img-fluid">' },
+        { value: 2, html: '<img src="/img/global/g-2.png" class="img-fluid">' },
+        { value: 3, html: '<img src="/img/global/g-3.png" class="img-fluid">' },
+        { value: 4, html: '<img src="/img/global/g-4.png" class="img-fluid">' },
+        { value: 5, html: '<img src="/img/global/g-3.png" class="img-fluid">' },
+        { value: 6, html: '<img src="/img/global/g-1.png" class="img-fluid">' },
+        { value: 7, html: '<img src="/img/global/g-2.png" class="img-fluid">' },
+      ],
+      selectedRepeatable: [],
+      optionsRepeatable: [
+        {value: 1, text: 'Yes' }
+      ],
+      selectedPublicRepeatable: [],
+      optionsPublicRepeatable: [
+        {value: 1, text: 'Yes' }
+      ]
     }
   },
   methods: {
